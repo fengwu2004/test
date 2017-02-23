@@ -52,15 +52,15 @@ define(function (require, exports, module) {
         this.beaconsMgr.init();
     }
 
-    idrLocateServer.prototype.onLocateSuccess = function (valid, posx, posy) {
+    function onLocateSuccess(obj, valid, posx, posy) {
 
         if (valid) {
 
-            this.x = posx;
+            obj.x = posx;
 
-            this.y = posy;
+            obj.y = posy;
 
-            this.didLocateSuccessFunc();
+            obj.didLocateSuccessFunc();
         }
     }
     
@@ -107,7 +107,7 @@ define(function (require, exports, module) {
 
             success: function (str) {
 
-                obj.onLocateSuccess(1, 100, 100);
+                onLocateSuccess(obj, 1, 100, 100);
             },
 
             error: function (str) {
