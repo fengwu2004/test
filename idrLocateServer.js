@@ -20,8 +20,6 @@ define(function (require, exports, module) {
         this.y = 0;
 
         this.beaconsMgr = new BeaconMgr();
-
-        this.didLocateSuccessFunc = '';
     }
 
     function filterbeacons(beacons) {
@@ -41,13 +39,15 @@ define(function (require, exports, module) {
         return newBeacons;
     }
 
-    idrLocateServer.prototype.start = function (regionId, floorId) {
+    idrLocateServer.prototype.start = function (regionId, floorId, callBack) {
 
         this.floorId = floorId;
 
         this.regionId = regionId;
 
         this.beaconsMgr.onBeaconReceiveFunc = this.onReceiveBeacons;
+
+        this.didLocateSuccessFunc = callBack;
 
         this.beaconsMgr.init();
     }
