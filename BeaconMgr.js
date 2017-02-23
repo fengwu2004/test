@@ -20,8 +20,6 @@ define(function (require, exports, module) {
 
         this.sSignature = '';
 
-        this.beaconScanCount = 0;
-
         this.onBeaconReceiveFunc = '';
 
         this.errorFunc = '';
@@ -143,17 +141,9 @@ define(function (require, exports, module) {
 
             complete: function (argv) {
 
-                // alert('startSearchBeacons:'+ JSON.stringify(argv));
-                if (argv) {
-
-                    if (argv.errMsg == 'startSearchBeacons:ok') {
+                if (argv && argv.errMsg == 'startSearchBeacons:ok') {
 
 
-                    }
-                    else {
-
-
-                    };
                 };
             }
         });
