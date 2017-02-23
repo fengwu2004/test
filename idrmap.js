@@ -273,8 +273,6 @@ define(function (require, exports, module) {
 
     function doAddUnits(obj) {
 
-        console.log(obj.units);
-
         var gtext = document.querySelector('#g_txt');
 
         var html = '';

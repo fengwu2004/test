@@ -124,15 +124,38 @@ define(function (require, exports, module) {
 
                 complete: function (res) {
 
-                    console.log('stopSearchBeacons');
+                    resetBeacons();
                 }
             });
         });
 
         wx.error(function (res) {
 
-            alert('错误');
-            // alert(JSON.stringify(res));
+
+        });
+    }
+
+    function resetBeacons() {
+
+        wx.startSearchBeacons({
+
+            ticket: "",
+
+            complete: function (argv) {
+
+                // alert('startSearchBeacons:'+ JSON.stringify(argv));
+                if (argv) {
+
+                    if (argv.errMsg == 'startSearchBeacons:ok') {
+
+
+                    }
+                    else {
+
+
+                    };
+                };
+            }
         });
     }
 
