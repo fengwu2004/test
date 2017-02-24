@@ -69,6 +69,8 @@ define(function (require, exports, module) {
             var data = {
                 'beacons': beacons,
                 'gzId': 'ewr2342342',
+                'openId': 'wx_oBt8bt-1WMXu67NNZI-JUNQj6UAc',
+                'OSType': 'Android',
                 'regionId': that.regionId,
                 'floorId': that.floorId,
                 'appId': gv.appId,
