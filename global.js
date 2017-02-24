@@ -8,7 +8,9 @@ define(function(require, exports, module) {
     
     function coreManager() {
 
+        this.loadSessionSuccess = ''
 
+        this.loadSessionFailed = ''
     }
 
     var globalValue = new coreManager();
@@ -25,13 +27,9 @@ define(function(require, exports, module) {
 
         this.time = ''
 
-        this.loadSessionSuccess = ''
-
-        this.loadSessionFailed = ''
-
         var that = this;
 
-        function initConfig() {
+        (function() {
 
             var url = 'http://wx.indoorun.com/wx/getSign.html';
 
@@ -59,7 +57,7 @@ define(function(require, exports, module) {
                     console.log(str);
                 }
             });
-        }
+        })();
 
         function succ(data) {
 
