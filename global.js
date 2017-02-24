@@ -13,7 +13,7 @@ define(function(require, exports, module) {
         this.loadSessionFailed = ''
     }
 
-    var globalValue = new coreManager();
+    var gv = new coreManager();
 
     coreManager.prototype.init = function () {
 
