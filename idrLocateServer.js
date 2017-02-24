@@ -109,9 +109,7 @@ define(function (require, exports, module) {
 
                     if (str.code !== 'failed') {
 
-                        console.log('计算位置成功');
-
-                        onLocateSuccess(1, 100, 100);
+                        alert('计算位置成功');
                     }
                 },
 
