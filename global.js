@@ -106,5 +106,5 @@ define(function(require, exports, module) {
         }
     }
 
-    module.exports = globalValue;
+    module.exports = gv;
 });
