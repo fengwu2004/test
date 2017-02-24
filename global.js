@@ -17,16 +17,6 @@ define(function(require, exports, module) {
 
     coreManager.prototype.init = function () {
 
-        this.sessionKey = ''
-
-        this.appId = ''
-
-        this.clientId = ''
-
-        this.sign = ''
-
-        this.time = ''
-
         var that = this;
 
         (function() {
