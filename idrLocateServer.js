@@ -32,7 +32,14 @@ define(function (require, exports, module) {
 
             if (beacon.rssi != 0) {
 
-                newBeacons.push(beacon);
+                var val = {
+                            'accuracy':beacon.accuracy,
+                            'major':beacon.major,
+                            'minor':beacon.minor,
+                            'rssi':beacon.rssi
+                          };
+
+                newBeacons.push(val);
             }
         }
 
@@ -57,7 +64,9 @@ define(function (require, exports, module) {
 
             var newBeacons = filterbeacons(beacons);
 
-            onServerLocate(newBeacons);
+            var beaconParas = JSON.stringify(newBeacons);
+
+            onServerLocate(beaconParas);
         }
 
         function onServerLocate(beacons) {
