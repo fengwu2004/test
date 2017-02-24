@@ -59,6 +59,7 @@ define(function(require, exports, module) {
             });
         })();
 
+
         function succ(data) {
 
             success(data, that.loadSessionSuccess, that.loadSessionFailed)
