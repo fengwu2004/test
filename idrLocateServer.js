@@ -69,8 +69,8 @@ define(function (require, exports, module) {
             var data = {
                 'beacons': beacons,
                 'gzId': 'ewr2342342',
-                'regionId': obj.regionId,
-                'floorId': obj.floorId,
+                'regionId': this.regionId,
+                'floorId': this.floorId,
                 'appId': gv.appId,
                 'clientId': gv.clientId,
                 'sessionKey': gv.sessionKey
