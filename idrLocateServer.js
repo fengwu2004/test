@@ -78,6 +78,8 @@ define(function (require, exports, module) {
                 'sessionKey': gv.sessionKey
             };
 
+            console.log(data);
+
             jsLib.ajax({
 
                 type:'post',
