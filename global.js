@@ -5,19 +5,117 @@
 define(function(require, exports, module) {
 
     require('../sdk/modules/JSLibrary');
+    
+    function coreManager() {
 
-    var globalValue = {
 
-        sessionKey:'',
+    }
 
-        appId:'',
+    var globalValue = new coreManager();
 
-        clientId:'',
+    coreManager.prototype.init = function () {
 
-        sign:'',
+        this.sessionKey = ''
 
-        time:'',
-    };
+        this.appId = ''
+
+        this.clientId = ''
+
+        this.sign = ''
+
+        this.time = ''
+
+        this.loadSessionSuccess = ''
+
+        this.loadSessionFailed = ''
+
+        var that = this;
+
+        function initConfig() {
+
+            var url = 'http://wx.indoorun.com/wx/getSign.html';
+
+            jsLib.ajax({
+
+                type: "get",
+
+                dataType: 'jsonp',
+
+                url: url, //添加自己的接口链接
+
+                data: {
+
+                    'appId': '2b497ada3b2711e4b60500163e0e2e6b'
+                },
+
+                timeOut: 10000,
+
+                success: function (data) {
+
+                    succ && succ(data);
+                },
+                error: function (str) {
+
+                    console.log(str);
+                }
+            });
+        }
+
+        function succ(data) {
+
+            success(data, that.loadSessionSuccess, that.loadSessionFailed)
+        }
+
+        function success(obj, succFn, errorFn) {
+
+            if (typeof obj !== 'object' && typeof succFn !== 'function') {
+
+                return;
+            }
+
+            that.appId = '2b497ada3b2711e4b60500163e0e2e6b';
+
+            that.clientId = obj.clientId;
+
+            that.time = obj.time;
+
+            that.sign = obj.sign;
+
+            var str = 'appId=' + '2b497ada3b2711e4b60500163e0e2e6b' + '&clientId=' + obj.clientId + '&time=' + obj.time + '&sign=' + obj.sign;
+
+            var url = 'http://wx.indoorun.com/wx/initSession.html?'+ str;
+
+            jsLib.ajax({
+
+                type: "get",
+
+                dataType: 'jsonp',
+
+                url: url, //添加自己的接口链接
+
+                data: {},
+
+                timeOut: 10000,
+
+                before: function () {
+
+                    // console.log("before");
+                },
+                success: function (data) {
+
+                    that.sessionKey = data.sessionKey;
+
+                    data.code === 'failed' ? (errorFn && errorFn(data)) : succFn && succFn(data);
+                },
+                error: function (str) {
+
+                    console.log(str);
+
+                    errorFn && errorFn();
+                }
+            });
+        }
+    }
 
     module.exports = globalValue;
 });
