@@ -87,7 +87,7 @@ define(function (require, exports, module) {
                 'sessionKey': gv.sessionKey
             };
 
-            console.log(data);
+            // console.log(data);
 
             jsLib.ajax({
 
@@ -107,7 +107,12 @@ define(function (require, exports, module) {
 
                 success: function (str) {
 
-                    onLocateSuccess(1, 100, 100);
+                    if (str.code !== 'failed') {
+
+                        console.log('计算位置成功');
+
+                        onLocateSuccess(1, 100, 100);
+                    }
                 },
 
                 error: function (str) {
