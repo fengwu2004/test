@@ -45,76 +45,73 @@ define(function (require, exports, module) {
 
         this.regionId = regionId;
 
-        this.beaconsMgr.onBeaconReceiveFunc = this.onReceiveBeacons;
+        this.beaconsMgr.onBeaconReceiveFunc = onReceiveBeacons;
 
         this.didLocateSuccessFunc = callBack;
 
         this.beaconsMgr.init();
-    }
-
-    function onLocateSuccess(obj, valid, posx, posy) {
-
-        if (valid) {
-
-            obj.x = posx;
-
-            obj.y = posy;
-
-            obj.didLocateSuccessFunc();
-        }
-    }
-    
-    idrLocateServer.prototype.onReceiveBeacons = function (beacons) {
-
-        var newBeacons = filterbeacons(beacons);
 
         var that = this;
 
-        onServerLocate(that, newBeacons);
-    }
+        function onReceiveBeacons(beacons) {
 
-    function onServerLocate(obj, beacons) {
+            var newBeacons = filterbeacons(beacons);
 
-        var domain = 'http://wx.indoorun.com';
+            onServerLocate(newBeacons);
+        }
 
-        var url = domain + '/locate/locating';
+        function onServerLocate(beacons) {
 
-        var data = {
-            'beacons': beacons,
-            'gzId': 'ewr2342342',
-            'regionId': obj.regionId,
-            'floorId': obj.floorId,
-            'appId': gv.appId,
-            'clientId': gv.clientId,
-            'sessionKey': gv.sessionKey
-        };
+            var domain = 'http://wx.indoorun.com';
 
-        jsLib.ajax({
+            var url = domain + '/locate/locating';
 
-            type:'post',
+            var data = {
+                'beacons': beacons,
+                'gzId': 'ewr2342342',
+                'regionId': obj.regionId,
+                'floorId': obj.floorId,
+                'appId': gv.appId,
+                'clientId': gv.clientId,
+                'sessionKey': gv.sessionKey
+            };
 
-            dataType: 'jsonp',
+            jsLib.ajax({
 
-            url: url, //添加自己的接口链接
+                type:'post',
 
-            data: data,
+                dataType: 'jsonp',
 
-            timeOut: 100000,
+                url: url, //添加自己的接口链接
 
-            before: function () {
-                // console.log("before");
-            },
+                data: data,
 
-            success: function (str) {
+                timeOut: 100000,
 
-                onLocateSuccess(obj, 1, 100, 100);
-            },
+                before: function () {
+                    // console.log("before");
+                },
 
-            error: function (str) {
+                success: function (str) {
+
+                    onLocateSuccess(1, 100, 100);
+                },
+
+                error: function (str) {
 
 
-            }
-        });
+                }
+            });
+        }
+
+        function onLocateSuccess(valid, posx, posy) {
+
+            that.x = posx;
+
+            that.y = posy;
+
+            that.valid = valid;
+        }
     }
 
     module.exports = idrLocateServer;
