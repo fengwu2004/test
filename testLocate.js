@@ -1,14 +1,19 @@
 /**
  * Created by yan on 23/02/2017.
  */
-seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrLocateServer'], function (idrLocateServer) {
+seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrLocateServer', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/global'], function (idrLocateServer, gv) {
 
-    var locator = new idrLocateServer();
+    gv.loadSessionSuccess = function () {
 
-    locator.start('14428254382730015', '14428254382890016', didLocateSuccess);
+        var locator = new idrLocateServer();
 
-    function didLocateSuccess() {
+        locator.start('14428254382730015', '14428254382890016', didLocateSuccess);
 
-        console.log('hello, locate success');
-    }
+        function didLocateSuccess() {
+
+            console.log('hello, locate success');
+        }
+    };
+
+    gv.init();
 });
