@@ -115,7 +115,7 @@ define(function (require, exports, module) {
 
                         that.regionId = obj.regionId;
 
-                        that.onLocateSuccess(x + ', ' + y);
+                        that.onLocateSuccess(that.x + ', ' + that.y);
                     }
                 },
 
