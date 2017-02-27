@@ -103,11 +103,19 @@ define(function (require, exports, module) {
                     // console.log("before");
                 },
 
-                success: function (str) {
+                success: function (obj) {
 
-                    if (str.code !== 'failed') {
+                    if (obj.code !== 'failed') {
 
-                        that.onLocateSuccess(JSON.stringify(str));
+                        that.x = obj.x;
+
+                        that.y = obj.y;
+
+                        that.floorId = obj.floorId;
+
+                        that.regionId = obj.regionId;
+
+                        that.onLocateSuccess(x + ', ' + y);
                     }
                 },
 
