@@ -32,6 +32,7 @@ define(function (require, exports, module) {
 
             if (beacon.rssi != 0) {
 
+
                 var val = {
                             'accuracy':beacon.accuracy,
                             'major':beacon.major,
