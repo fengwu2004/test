@@ -11,7 +11,13 @@ define(function (require, exports, module) {
 
     function idrLocateServer() {
 
-        this.beaconsMgr = new BeaconMgr();
+        this.floorId = '';
+
+        this.regionId = '';
+
+        this.x = 0;
+
+        this.y = 0;
     }
 
     function filterbeacons(beacons) {
@@ -40,13 +46,7 @@ define(function (require, exports, module) {
 
     idrLocateServer.prototype.start = function (regionId, floorId, onLocateSuccess) {
 
-        this.floorId = floorId;
-
-        this.regionId = regionId;
-
-        this.x = 0;
-
-        this.y = 0;
+        this.beaconsMgr = new BeaconMgr();
 
         this.beaconsMgr.onBeaconReceiveFunc = onReceiveBeacons;
 
