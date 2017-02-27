@@ -23,6 +23,8 @@ define(function (require, exports, module) {
         this.onBeaconReceiveFunc = '';
 
         this.errorFunc = '';
+
+        this.delegator = null;
     }
 
     BeaconMgr.prototype.init = function() {

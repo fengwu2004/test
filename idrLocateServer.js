@@ -11,7 +11,7 @@ define(function (require, exports, module) {
 
     function idrLocateServer() {
 
-        this.floorId = '';
+        this.floorId = '121';
 
         this.regionId = '';
 
@@ -32,7 +32,6 @@ define(function (require, exports, module) {
 
             if (beacon.rssi != 0) {
 
-
                 var val = {
                             'accuracy':beacon.accuracy,
                             'major':beacon.major,
@@ -47,7 +46,7 @@ define(function (require, exports, module) {
         return newBeacons;
     }
 
-    idrLocateServer.prototype.start = function (regionId, floorId, callBack) {
+    idrLocateServer.prototype.start = function (regionId, floorId, onLocateSuccess) {
 
         this.floorId = floorId;
 
@@ -55,9 +54,11 @@ define(function (require, exports, module) {
 
         this.beaconsMgr.onBeaconReceiveFunc = onReceiveBeacons;
 
-        this.didLocateSuccessFunc = callBack;
+        this.onLocateSuccess = onLocateSuccess;
 
         this.beaconsMgr.init();
+
+        this.beaconsMgr.delegator = this;
 
         var that = this;
 
@@ -110,7 +111,7 @@ define(function (require, exports, module) {
 
                     if (str.code !== 'failed') {
 
-                        alert('计算位置成功');
+                        that.onLocateSuccess();
                     }
                 },
 
@@ -119,15 +120,6 @@ define(function (require, exports, module) {
 
                 }
             });
-        }
-
-        function onLocateSuccess(valid, posx, posy) {
-
-            that.x = posx;
-
-            that.y = posy;
-
-            that.valid = valid;
         }
     }
 

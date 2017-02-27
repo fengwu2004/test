@@ -11,7 +11,7 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrLocateSer
 
         function didLocateSuccess() {
 
-            console.log('hello, locate success');
+            alert('hello, locate success');
         }
     };
 
