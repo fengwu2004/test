@@ -107,7 +107,7 @@ define(function (require, exports, module) {
 
                     if (str.code !== 'failed') {
 
-                        that.onLocateSuccess(str);
+                        that.onLocateSuccess(JSON.stringify(str));
                     }
                 },
 
