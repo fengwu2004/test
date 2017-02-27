@@ -11,14 +11,6 @@ define(function (require, exports, module) {
 
     function idrLocateServer() {
 
-        this.floorId = '121';
-
-        this.regionId = '';
-
-        this.x = 0;
-
-        this.y = 0;
-
         this.beaconsMgr = new BeaconMgr();
     }
 
@@ -51,6 +43,10 @@ define(function (require, exports, module) {
         this.floorId = floorId;
 
         this.regionId = regionId;
+
+        this.x = 0;
+
+        this.y = 0;
 
         this.beaconsMgr.onBeaconReceiveFunc = onReceiveBeacons;
 
@@ -111,7 +107,7 @@ define(function (require, exports, module) {
 
                     if (str.code !== 'failed') {
 
-                        that.onLocateSuccess();
+                        that.onLocateSuccess(str);
                     }
                 },
 

@@ -9,9 +9,9 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrLocateSer
 
         locator.start('14428254382730015', '14557583851000004', didLocateSuccess);
 
-        function didLocateSuccess() {
+        function didLocateSuccess(str) {
 
-            alert('hello, locate success');
+            alert(str);
         }
     };
 
