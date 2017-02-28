@@ -7,7 +7,7 @@ define(function (require, exports, module) {
 
     var gv = require('./idrCoreManager');
 
-    var BeaconMgr = require('./IdrBeaconMgr');
+    var BeaconMgr = require('./idrBeaconMgr');
 
     function idrLocateServer() {
 
