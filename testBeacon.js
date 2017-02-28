@@ -1,7 +1,7 @@
 /**
  * Created by yan on 20/02/2017.
  */
-seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/BeaconMgr'], function (BeaconMgr) {
+seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrBeaconMgr'], function (BeaconMgr) {
 
     var beaconMgr = new BeaconMgr();
 
