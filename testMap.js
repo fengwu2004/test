@@ -7,7 +7,7 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/newMa
 
         var map = new idrmap();
 
-        map.loadMap()
+        map.loadMap('14794349038400909', '14557583851000004');
     }
 
     coreManager.init();
