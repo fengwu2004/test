@@ -5,9 +5,9 @@
 
 define(function (require, exports, module) {
 
-    var gv = require('./global');
+    var gv = require('./idrCoreManager');
 
-    var BeaconMgr = require('./BeaconMgr');
+    var BeaconMgr = require('./IdrBeaconMgr');
 
     function idrLocateServer() {
 
@@ -18,6 +18,10 @@ define(function (require, exports, module) {
         this.x = 0;
 
         this.y = 0;
+
+        this.onLocateSuccess = null;
+
+        this.onLocateFailed = null;
     }
 
     function filterbeacons(beacons) {

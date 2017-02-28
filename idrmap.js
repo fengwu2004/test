@@ -4,7 +4,7 @@
 
 define(function (require, exports, module) {
 
-    var gv = require('./global');
+    var gv = require('./idrCoreManager');
 
     require('./alloy_finger');
 
@@ -29,12 +29,6 @@ define(function (require, exports, module) {
         this.floorId = '';
 
         this.initAngle = 0;
-
-        this.intPan = [0, 0];
-
-        this.tempM = Matrix3.create();
-
-        this.trans = Matrix3.create();
     }
 
     idrmap.prototype.loadMap = function (regionId, floorId) {
