@@ -9,8 +9,6 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/BeaconMgr'],
 
     beaconMgr.onBeaconReceiveFunc = onUpdateBeacons;
 
-    beaconMgr.config();
-
     function onUpdateBeacons(beacons) {
 
         showBeacons(beacons);
