@@ -3,7 +3,7 @@
  */
 seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrBeaconMgr'], function (idrBeaconMgr) {
 
-    var beaconMgr = new BeaconMgr();
+    var beaconMgr = new idrBeaconMgr();
 
     beaconMgr.init();
 
