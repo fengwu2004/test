@@ -4,7 +4,7 @@
 
 define(function (require, exports, module) {
 
-    var gv = require('./idrCoreManager');
+    var gv = require('./../sdk/modules/idrCoreManager');
 
     require('./alloy_finger');
 
