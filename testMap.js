@@ -11,5 +11,4 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/newMa
     }
 
     coreManager.init();
-
 });
