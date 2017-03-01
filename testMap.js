@@ -1,14 +1,21 @@
 /**
  * Created by yan on 28/02/2017.
  */
-seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMapControl', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrCoreManager'], function (idrmap, coreManager) {
+seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMapControl', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrCoreManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrDataManager'], function (idrmap, idrCoreMgr, idrDataMgr) {
 
-    coreManager.loadSessionSuccess = function () {
+    var regionId = '14794349038400909'
 
-        var map = new idrmap();
+    var floorId = '14557583851000004'
 
-        map.loadMap('14794349038400909', '14557583851000004');
+    idrCoreMgr.loadSessionSuccess = function () {
+
+        idrDataMgr.loadRegionInfo(regionId, function () {
+
+            var map = new idrmap();
+
+            map.loadMap(regionId, floorId);
+        }, null)
     }
 
-    coreManager.init();
+    idrCoreMgr.init();
 });
