@@ -3,9 +3,9 @@
  */
 seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMapControl', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrCoreManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrDataManager'], function (idrmap, idrCoreMgr, idrDataMgr) {
 
-    var regionId = '14794349038400909'
+    var regionId = '14633645971891335'
 
-    var floorId = '14557583851000004'
+    var floorId = '14633645973301472'
 
     idrCoreMgr.loadSessionSuccess = function () {
 
