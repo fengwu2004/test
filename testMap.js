@@ -22,5 +22,6 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
         }, null)
     }
 
+
     idrCoreMgr.init();
 });
