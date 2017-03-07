@@ -13,6 +13,11 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
             var map = new idrmap();
 
+            map.setLoadMapFinishCallback(function() {
+
+                map.setPos(100, 100)
+            })
+            
             map.loadMap(regionId, floorId);
         }, null)
     }
