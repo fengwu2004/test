@@ -16,6 +16,8 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
             map.setLoadMapFinishCallback(function() {
 
                 map.setCurrPos(100, 100, true)
+
+                map.showPath([[100, 100], [100, 120], [120, 120], [120, 150]])
             })
             
             map.loadMap(regionId, floorId);
