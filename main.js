@@ -1,6 +1,9 @@
 /**
  * Created by yan on 27/02/2017.
  */
+
+
+
 seajs.use([
     'http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/idrLocateServer',
     'http://wx.indoorun.com/indoorun/app/yanli/indoorun/test/global',
