@@ -15,7 +15,7 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
             map.setLoadMapFinishCallback(function() {
 
-                map.setCurrPos(100, 100, true)
+                map.setCurrPos(130, 100, true)
 
                 map.showPath([{x:11, y:22}, {x:100, y:120}, {x:120, y:120}, {x:120, y:150}])
             })
