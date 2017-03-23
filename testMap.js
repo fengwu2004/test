@@ -1,13 +1,19 @@
 /**
  * Created by yan on 28/02/2017.
  */
-seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMapView', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrCoreManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrDataManager'], function (idrmapView, idrCoreMgr, idrDataMgr) {
+seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMapView', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrCoreManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrDataManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrNetworkManager'], function (idrmapView, idrCoreMgr, idrDataMgr, networkInstance) {
 
     var regionId = '14633645971891335'
 
     var floorId = '14633645973301472'
 
     idrCoreMgr.loadSessionSuccess = function () {
+
+        networkInstance.serverCallRegionPath('14633645971891335', function(data) {
+
+            console.log(data)
+
+        }, null)
 
         idrDataMgr.loadRegionInfo(regionId, function () {
 
