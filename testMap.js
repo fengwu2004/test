@@ -39,7 +39,9 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
                 reader.onload = function() {
 
-                    console.log(reader.result);
+                    var jobj = JSON.parse(reader.result)
+
+                    console.log(jobj)
                 }
 
                 reader.readAsText(jsonData);
@@ -61,7 +63,6 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
             map.loadMap(regionId, floorId);
         }, null)
     }
-
 
     idrCoreMgr.init();
 });
