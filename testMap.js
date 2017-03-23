@@ -35,13 +35,11 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
             unzipBlob(data, function(jsonData) {
 
-                console.log(jsonData)
-
                 var reader = new FileReader();
 
                 reader.onload = function() {
 
-                    alert(reader.result);
+                    console.log(reader.result);
                 }
 
                 reader.readAsText(jsonData);
