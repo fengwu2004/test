@@ -10,14 +10,17 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
     zip.workerScriptsPath = 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/zip/'
 
     function unzipBlob(blob, callback) {
-        // use a zip.BlobReader object to read zipped data stored into blob variable
-        zip.createReader(new zip.BlobReader(blob), function(zipReader) {
-            // get entries from the zip file
+
+        var blobreader = new zip.BlobReader(blob)
+
+        zip.createReader(blobreader, function(zipReader) {
+
             zipReader.getEntries(function(entries) {
-                // get data from the first file
+
                 entries[0].getData(new zip.BlobWriter("text/plain"), function(data) {
-                    // close the reader and calls callback function with uncompressed data as parameter
+
                     zipReader.close();
+
                     callback(data);
                 });
             });
