@@ -11,7 +11,7 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
     function unzipBlob(blob, callback) {
 
-        var blobreader = new zip.BlobReader(blob)
+        var blobreader = new zip.Data64URIReader(blob)
 
         zip.createReader(blobreader, function(zipReader) {
 
@@ -31,9 +31,9 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
         networkInstance.serverCallRegionPath('14633645971891335', function(data) {
 
-            var decodedData = window.atob(data);
+            // var decodedData = window.atob(data);
 
-            unzipBlob(decodedData, function(jsonData) {
+            unzipBlob(data, function(jsonData) {
 
                 console.log(jsonData)
             })
