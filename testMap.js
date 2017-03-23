@@ -36,6 +36,10 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
             unzipBlob(data, function(jsonData) {
 
                 console.log(jsonData)
+
+                var decodedData = window.atob(jsonData);
+
+                console.log(decodedData)
             })
 
         }, null)
