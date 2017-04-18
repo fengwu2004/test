@@ -1,6 +1,9 @@
 /**
  * Created by yan on 28/02/2017.
  */
+
+var map = null
+
 seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMapView', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrCoreManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrDataManager', 'http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrNetworkManager'], function (idrmapView, idrCoreMgr, idrDataMgr, networkInstance) {
 
     var regionId = '14633645971891335'
@@ -51,7 +54,7 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
         idrDataMgr.loadRegionInfo(regionId, function () {
 
-            var map = new idrmapView();
+            map = new idrmapView();
 
             map.setLoadMapFinishCallback(function() {
 
@@ -68,3 +71,10 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
     
     idrCoreMgr.init();
 });
+
+function onTestClick() {
+
+    map.scroll([100, 50])
+
+    console.log('onTestClick')
+}
