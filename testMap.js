@@ -74,7 +74,7 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
 
 function onTestClick() {
 
-    map.scroll([100, 50])
+    map.onTestClick()
 
     console.log('onTestClick')
 }
