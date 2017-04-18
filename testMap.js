@@ -65,6 +65,11 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
             map.loadMap(regionId, floorId);
         }, null)
     }
-
+    
     idrCoreMgr.init();
+    
+    function onTestClick() {
+
+        console.log('test')
+    }
 });
