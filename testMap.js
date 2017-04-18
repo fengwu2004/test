@@ -68,8 +68,3 @@ seajs.use(['http://wx.indoorun.com/indoorun/app/yanli/indoorun/sdk/modules/idrMa
     
     idrCoreMgr.init();
 });
-
-function onTestClick() {
-
-    console.log('test')
-}
